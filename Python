@@ -1,0 +1,42 @@
+import random
+
+def get_response(user_input):
+    """
+    This function takes user input as an argument and returns a rule-based response.
+    """
+    user_input = user_input.lower()
+
+    # Define rule-based responses
+    if "hello" in user_input or "hi" in user_input:
+        return random.choice(["Hello! How can I assist you?", "Hi there! What can I do for you today?"])
+    elif "how are you" in user_input:
+        return "I'm just a bot, but I'm doing great! How about you?"
+    elif "what is your name" in user_input:
+        return "I'm the MyDailyWork Chatbot, designed to assist you with AI tasks."
+    elif "bye" in user_input or "goodbye" in user_input:
+        return "Goodbye! Have a great day!"
+    elif "what can you do" in user_input:
+        return "I can answer simple questions based on predefined rules. Try asking me something else!"
+    else:
+        return "I'm sorry, I didn't understand that. Could you please rephrase?"
+
+def chat():
+    """
+    This function starts the chatbot, allowing users to input their queries and get responses.
+    """
+    print("Welcome to MyDailyWork Chatbot! Type 'bye' to exit.")
+    while True:
+        # Get user input
+        user_input = input("You: ")
+
+        # Check if the user wants to exit the chat
+        if user_input.lower() == "bye":
+            print("Chatbot: Goodbye! Have a great day!")
+            break
+        
+        # Get and print the chatbot's response
+        response = get_response(user_input)
+        print(f"Chatbot: {response}")
+
+if __name__ == "__main__":
+    chat()
